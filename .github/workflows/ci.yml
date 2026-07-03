@@ -13,7 +13,15 @@ on:
     branches: [ "master" ]
   pull_request:
     branches: [ "master" ]
-
+  schedule: #Set the CRON for midnight IST -- UTC
+    - cron: "00 19 * * *"
+  workflow_dispatch: 
+    inputs: 
+      env:
+        description: Environment
+        type: choice
+        options: [qa,uat,dev]
+        required: true
 jobs:
   test:
 
@@ -28,7 +36,7 @@ jobs:
         distribution: 'temurin'
         cache: maven
     - name: Execute Test Automation Framework
-      run: mvn clean test -DsuiteXmlFile=testng.xml -Denv=qa
+      run: mvn clean test -DsuiteXmlFile=testng.xml -Denv="${{ github.event.inputs.env }}"
 
     - name: Upload a Build Artifact
       if: always()
