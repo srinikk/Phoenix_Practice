@@ -17,7 +17,7 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-surefire-plugin</artifactId>
-				<version>3.3.0</version>
+				<version>3.5.2</version>
 				<configuration>
 					<suiteXmlFiles>
 						<!-- Provide the path relative to the project root -->
@@ -29,7 +29,7 @@
 					<dependency>
 						<groupId>org.apache.maven.surefire</groupId>
 						<artifactId>surefire-testng</artifactId>
-						<version>3.3.0</version> <!-- Must match the plugin
+						<version>3.5.2</version> <!-- Must match the plugin
 						version -->
 					</dependency>
 				</dependencies>
